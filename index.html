@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A modern Hindi and English text-to-speech experience." />
+  <title>Vaani — Hindi & English Text to Speech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="aurora aurora-one"></div>
+  <div class="aurora aurora-two"></div>
+  <header class="navbar container">
+    <a class="brand" href="#home" aria-label="Vaani home"><span class="brand-mark">व</span><span>Vaani</span></a>
+    <nav aria-label="Main navigation">
+      <a class="active" href="#home">Studio</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="nav-cta" data-scroll="#studio">Start speaking <span>↗</span></button>
+  </header>
+
+  <main id="home">
+    <section class="hero container">
+      <p class="eyebrow"><span></span> Your words, beautifully voiced</p>
+      <h1>Let every word<br /><em>find its voice.</em></h1>
+      <p class="hero-copy">Turn Hindi and English text into warm, natural speech — tailored to the voice, language, and pace you choose.</p>
+      <div class="hero-actions">
+        <button class="primary-btn" data-scroll="#studio">Create a voice <span>→</span></button>
+        <button class="text-btn" data-scroll="#about"><span class="play-icon">▶</span> Discover Vaani</button>
+      </div>
+      <div class="language-orbit" aria-hidden="true">
+        <span class="orbit-ring ring-one"></span><span class="orbit-ring ring-two"></span>
+        <span class="orbit-dot dot-one">नमस्ते</span><span class="orbit-dot dot-two">hello</span>
+        <div class="sound-core"><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+    </section>
+
+    <section class="studio-section container" id="studio">
+      <div class="section-heading"><p class="eyebrow"><span></span> Voice studio</p><h2>Make it sound <em>like you imagined.</em></h2></div>
+      <div class="studio-card">
+        <div class="text-panel">
+          <div class="panel-top"><label for="speechText">Your script</label><span id="wordCount">0 / 600</span></div>
+          <textarea id="speechText" maxlength="600" placeholder="Type or paste your words here…&#10;&#10;नमस्ते! आज आप कैसे हैं?&#10;Hello! How are you today?"></textarea>
+          <div class="quick-lines"><button data-text="नमस्ते! आपका वाणी में स्वागत है।">नमस्ते!</button><button data-text="Hello, welcome to Vaani.">Hello!</button><button data-text="आज का दिन बहुत खूबसूरत है।">आज का दिन</button></div>
+        </div>
+        <div class="controls-panel">
+          <div class="control-group">
+            <div class="control-label"><span>Language</span><small id="languageHint">English / India</small></div>
+            <div class="segmented" id="languageSwitch"><button class="selected" data-lang="en-IN">English</button><button data-lang="hi-IN">हिंदी</button></div>
+          </div>
+          <div class="control-group"><div class="control-label"><span>Voice style</span><small id="voiceName">Finding voices…</small></div><div class="voice-options" id="voiceOptions"><button class="voice-card selected" data-gender="female"><span class="avatar female">♀</span><span><b>Female</b><small>Warm & clear</small></span><i>✓</i></button><button class="voice-card" data-gender="male"><span class="avatar male">♂</span><span><b>Male</b><small>Calm & rich</small></span><i>✓</i></button></div></div>
+          <div class="sliders"><label>Speaking pace <output id="rateOutput">1.0×</output><input id="rate" type="range" min="0.6" max="1.4" step="0.1" value="1" /></label><label>Voice pitch <output id="pitchOutput">Normal</output><input id="pitch" type="range" min="0.7" max="1.3" step="0.1" value="1" /></label></div>
+          <button id="speakButton" class="speak-btn"><span class="sound-bars"><i></i><i></i><i></i><i></i></span><span id="speakLabel">Listen to your voice</span><span class="arrow">→</span></button>
+          <p class="voice-note" id="statusMessage" role="status">Your browser's available Hindi / English voices will be used.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section container" id="about">
+      <div class="about-art"><div class="quote-symbol">“</div><p>आवाज़ वो एहसास है जो शब्दों से आगे जाता है।</p><span>A voice travels farther than words.</span></div>
+      <div class="about-copy"><p class="eyebrow"><span></span> About Vaani</p><h2>Voices made for <em>every story.</em></h2><p>Vaani is a simple, joyful text-to-speech studio built for the two languages that shape so many of our conversations — Hindi and English.</p><p>It uses the voices available on your device to give your words an expressive, accessible way to be heard.</p><div class="features"><div><b>02</b><span>Languages, one seamless experience</span></div><div><b>∞</b><span>Ideas ready to be spoken</span></div></div></div>
+    </section>
+
+    <section class="contact-section" id="contact"><div class="container contact-inner"><div><p class="eyebrow"><span></span> Get in touch</p><h2>Have an idea<br />worth <em>hearing?</em></h2></div><div class="contact-card"><p>We'd love to hear what you think, what you need, or simply say hello.</p><a href="mailto:hello@vaani.app">hello@vaani.app <span>↗</span></a><div class="socials"><a href="#contact" aria-label="Instagram">ig</a><a href="#contact" aria-label="Twitter">𝕏</a><a href="#contact" aria-label="LinkedIn">in</a></div></div></div></section>
+  </main>
+  <footer class="container"><a class="brand" href="#home"><span class="brand-mark">व</span><span>Vaani</span></a><p>Made for every voice, everywhere.</p><span>© 2026 Vaani Studio</span></footer>
+  <script src="script.js"></script>
+</body>
+</html>
