@@ -37,8 +37,11 @@ function closePaymentModal() {
 function preferredVoice() {
   const languagePrefix = selectedLanguage.slice(0, 2);
   const matches = voices.filter(voice => voice.lang.toLowerCase().startsWith(languagePrefix));
-  const genderTerms = selectedGender === 'female' ? /female|zira|susan|hazel|aria|heera|kavya/i : /male|david|mark|ravi|hemant|aarav|rahul/i;
-  return matches.find(voice => genderTerms.test(voice.name)) || matches[0] || voices.find(voice => voice.lang.startsWith('en'));
+  const genderTerms = selectedGender === 'female'
+    ? /female|zira|susan|hazel|aria|heera|kavya|swara|shreya|priya|neerja|sangeeta/i
+    : /male|david|mark|ravi|hemant|aarav|rahul|madhur|rishi|veer|amit|aditya|rohan|prabhat|sanjay|manoj|kumar|anand|mohan/i;
+  const genderMatch = voice => genderTerms.test(`${voice.name} ${voice.voiceURI}`);
+  return matches.find(genderMatch) || voices.find(genderMatch) || matches[0] || voices.find(voice => voice.lang.startsWith('en'));
 }
 function refreshVoiceName() {
   const voice = preferredVoice();
