@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="payment.css" />
+  <link rel="stylesheet" href="polish.css" />
 </head>
 <body>
   <div class="aurora aurora-one"></div>
@@ -71,6 +73,24 @@
     <a href="https://www.linkedin.com/in/kapil-butola-784504286/" aria-label="LinkedIn">IN</a></div></div></div></section>
   </main>
   <footer class="container"><a class="brand" href="#home"><span class="brand-mark">क</span><span>KAPIL</span></a><p>Made in BHARAT>© 2026 KAPIL BUTOLA</footer>
+  <div class="payment-modal" id="paymentModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="paymentTitle">
+    <div class="payment-backdrop" data-close-payment></div>
+    <section class="payment-card">
+      <button class="payment-close" type="button" aria-label="Close payment window" data-close-payment>×</button>
+      <p class="eyebrow"><span></span> Unlock voice conversion</p>
+      <h2 id="paymentTitle">Pay what feels <em>right.</em></h2>
+      <p class="payment-copy">Choose any amount between ₹5 and ₹100, scan the QR code, and confirm your payment to start listening.</p>
+      <label class="amount-label" for="paymentAmount">Payment amount <output id="paymentAmountOutput">₹10</output></label>
+      <input id="paymentAmount" type="range" min="5" max="100" step="1" value="10" aria-describedby="paymentAmountOutput" />
+      <div class="amount-ticks"><span>₹5</span><span>₹100</span></div>
+      <div class="qr-payment">
+        <img src="assets/payment-qr.jpeg" alt="UPI payment QR code for Kapil Butola" />
+        <div><b>Scan to pay ₹<span id="qrAmount">10</span></b><small>UPI payment to Kapil Butola</small></div>
+      </div>
+      <button id="paymentDoneButton" class="payment-done" type="button">I have paid — unlock voice <span>→</span></button>
+      <p class="payment-note">Your confirmation unlocks text-to-speech for this visit.</p>
+    </section>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>
