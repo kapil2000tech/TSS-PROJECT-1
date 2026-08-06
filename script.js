@@ -41,7 +41,10 @@ function preferredVoice() {
     ? /female|zira|susan|hazel|aria|heera|kavya|swara|shreya|priya|neerja|sangeeta/i
     : /male|david|mark|ravi|hemant|aarav|rahul|madhur|rishi|veer|amit|aditya|rohan|prabhat|sanjay|manoj|kumar|anand|mohan/i;
   const genderMatch = voice => genderTerms.test(`${voice.name} ${voice.voiceURI}`);
-  return matches.find(genderMatch) || voices.find(genderMatch) || matches[0] || voices.find(voice => voice.lang.startsWith('en'));
+  const matchingLanguageGenderVoice = matches.find(genderMatch);
+  const anyLanguageGenderVoice = voices.find(genderMatch);
+  if (selectedGender === 'male') return matchingLanguageGenderVoice || anyLanguageGenderVoice || matches[0];
+  return matchingLanguageGenderVoice || matches[0] || anyLanguageGenderVoice || voices.find(voice => voice.lang.startsWith('en'));
 }
 function refreshVoiceName() {
   const voice = preferredVoice();
@@ -65,7 +68,8 @@ function speak() {
   }
   const utterance = new SpeechSynthesisUtterance(content);
   const voice = preferredVoice();
-  if (voice) { utterance.voice = voice; utterance.lang = voice.lang; } else utterance.lang = selectedLanguage;
+  if (voice) utterance.voice = voice;
+  utterance.lang = selectedLanguage;
   utterance.rate = Number(rate.value);
   utterance.pitch = Number(pitch.value);
   utterance.onstart = () => {
