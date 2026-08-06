@@ -11,13 +11,15 @@ const paymentModal = document.querySelector('#paymentModal');
 const paymentAmount = document.querySelector('#paymentAmount');
 const paymentAmountOutput = document.querySelector('#paymentAmountOutput');
 const qrAmount = document.querySelector('#qrAmount');
-const paymentDoneButton = document.querySelector('#paymentDoneButton');
+const qrPayment = document.querySelector('#qrPayment');
+const paymentNote = document.querySelector('#paymentNote');
 
 let voices = [];
 let selectedLanguage = 'en-IN';
 let selectedGender = 'female';
 let speaking = false;
 let paymentUnlocked = sessionStorage.getItem('kapilVoiceUnlocked') === 'true';
+let qrClickCount = 0;
 
 function updateCount() { wordCount.textContent = `${textArea.value.length} / 100`; }
 function setPaymentState() {
@@ -116,9 +118,16 @@ paymentAmount.addEventListener('input', () => {
   paymentAmountOutput.textContent = `₹${paymentAmount.value}`;
   qrAmount.textContent = paymentAmount.value;
 });
-paymentDoneButton.addEventListener('click', () => {
+qrPayment.addEventListener('click', () => {
+  qrClickCount += 1;
+  if (qrClickCount < 3) {
+    const remainingClicks = 3 - qrClickCount;
+    paymentNote.textContent = `${remainingClicks} more click${remainingClicks === 1 ? '' : 's'} on the QR code to unlock voice conversion.`;
+    return;
+  }
   paymentUnlocked = true;
   sessionStorage.setItem('kapilVoiceUnlocked', 'true');
+  qrClickCount = 0;
   closePaymentModal();
   setPaymentState();
   statusMessage.textContent = 'Payment confirmed. Your voice is ready.';

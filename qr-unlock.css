@@ -1,0 +1,1 @@
+.qr-payment{display:flex;align-items:center;width:100%;gap:17px;margin:23px 0 0;text-align:left;transition:transform .2s ease,box-shadow .2s ease}.qr-payment:hover,.qr-payment:focus-visible{transform:translateY(-2px);box-shadow:0 8px 18px #62548220;outline:2px solid #a991f0}.qr-payment:active{transform:scale(.98)}@media(max-width:480px){.qr-payment{gap:12px}}

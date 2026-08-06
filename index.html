@@ -11,6 +11,8 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="payment.css" />
   <link rel="stylesheet" href="polish.css" />
+  <link rel="stylesheet" href="qr-unlock.css" />
+  <link rel="stylesheet" href="luxury.css" />
 </head>
 <body>
   <div class="aurora aurora-one"></div>
@@ -45,8 +47,8 @@
       <div class="section-heading"><p class="eyebrow"><span></span> Voice studio</p><h2>Make it sound <em>like you imagined.</em></h2></div>
       <div class="studio-card">
         <div class="text-panel">
-          <div class="panel-top"><label for="speechText">Your script</label><span id="wordCount">0 / 100</span></div>
-          <textarea id="speechText" maxlength="100" placeholder="Type or paste your words here…&#10;&#10;नमस्ते! आज आप कैसे हैं?&#10;Hello! How are you today?"></textarea>
+          <div class="panel-top"><label for="speechText">Your script</label><span id="wordCount">0 / 1000</span></div>
+          <textarea id="speechText" maxlength="1000" placeholder="Type or paste your words here…&#10;&#10;नमस्ते! आज आप कैसे हैं?&#10;Hello! How are you today?"></textarea>
           <div class="quick-lines"><button data-text="नमस्ते! यहाँ आपका स्वागत है , मैं दिप्पी आपकी वॉइस असिस्टेंट ।">नमस्ते!</button><button data-text="Hello, welcome here, i am dippi your voice assistant">Hello!</button><button data-text="आज का दिन बहुत खूबसूरत है।">आज का दिन</button></div>
         </div>
         <div class="controls-panel">
@@ -83,12 +85,11 @@
       <label class="amount-label" for="paymentAmount">Payment amount <output id="paymentAmountOutput">₹10</output></label>
       <input id="paymentAmount" type="range" min="5" max="100" step="1" value="10" aria-describedby="paymentAmountOutput" />
       <div class="amount-ticks"><span>₹5</span><span>₹100</span></div>
-      <div class="qr-payment">
+      <button class="qr-payment" id="qrPayment" type="button" aria-label="Click the payment QR code three times to unlock voice conversion">
         <img src="assets/payment-qr.jpeg" alt="UPI payment QR code for Kapil Butola" />
         <div><b>Scan to pay ₹<span id="qrAmount">10</span></b><small>UPI payment to Kapil Butola</small></div>
-      </div>
-      <button id="paymentDoneButton" class="payment-done" type="button">I have paid — unlock voice <span>→</span></button>
-      <p class="payment-note">Your confirmation unlocks text-to-speech for this visit.</p>
+      </button>
+      <p class="payment-note" id="paymentNote">Click the QR code 3 times after payment to unlock text-to-speech for this visit.</p>
     </section>
   </div>
   <script src="script.js"></script>
